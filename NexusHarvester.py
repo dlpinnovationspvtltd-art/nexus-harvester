@@ -21,8 +21,6 @@ SETTINGS_FILE = os.path.join(os.path.expanduser("~"), ".lead_engine_settings.jso
 HISTORY_FILE = os.path.join(os.path.expanduser("~"), ".lead_engine_history.json")
 
 
-HAND_CURSOR = "hand2" if os.name == 'nt' else "pointinghand"
-
 
 def play_completion_chime(sound_name="Glass"):
     """Non-blocking audio completion chime using native OS sound library."""
@@ -1817,7 +1815,7 @@ class NexusHarvesterApp:
         g_url_frame = ttk.Frame(card_google)
         g_url_frame.pack(fill='x', pady=(0, 10))
         ttk.Label(g_url_frame, text="Direct Console URL:", font=("Segoe UI Variable", 10, "bold")).pack(side='left', padx=(0, 6))
-        g_link = ttk.Label(g_url_frame, text="https://console.cloud.google.com/google/maps-apis/credentials", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2", cursor=HAND_CURSOR)
+        g_link = ttk.Label(g_url_frame, text="https://console.cloud.google.com/google/maps-apis/credentials", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2")
         g_link.bind("<Button-1>", lambda e: self.open_url("https://console.cloud.google.com/google/maps-apis/credentials"))
         g_link.pack(side='left', padx=(0, 15))
         ttk.Button(g_url_frame, text="🌐 Open Google Cloud Console", command=lambda: self.open_url("https://console.cloud.google.com/google/maps-apis/credentials"), style="Accent.TButton").pack(side='left')
@@ -1846,7 +1844,7 @@ class NexusHarvesterApp:
         groq_url_frame = ttk.Frame(card_groq)
         groq_url_frame.pack(fill='x', pady=(0, 10))
         ttk.Label(groq_url_frame, text="Direct Console URL:", font=("Segoe UI Variable", 10, "bold")).pack(side='left', padx=(0, 6))
-        groq_link = ttk.Label(groq_url_frame, text="https://console.groq.com/keys", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2", cursor=HAND_CURSOR)
+        groq_link = ttk.Label(groq_url_frame, text="https://console.groq.com/keys", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2")
         groq_link.bind("<Button-1>", lambda e: self.open_url("https://console.groq.com/keys"))
         groq_link.pack(side='left', padx=(0, 15))
         ttk.Button(groq_url_frame, text="🌐 Open Free Groq Console", command=lambda: self.open_url("https://console.groq.com/keys"), style="Accent.TButton").pack(side='left')
@@ -1875,7 +1873,7 @@ class NexusHarvesterApp:
         gmail_url_frame = ttk.Frame(card_gmail)
         gmail_url_frame.pack(fill='x', pady=(0, 10))
         ttk.Label(gmail_url_frame, text="Direct Passwords URL:", font=("Segoe UI Variable", 10, "bold")).pack(side='left', padx=(0, 6))
-        gmail_link = ttk.Label(gmail_url_frame, text="https://myaccount.google.com/apppasswords", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2", cursor=HAND_CURSOR)
+        gmail_link = ttk.Label(gmail_url_frame, text="https://myaccount.google.com/apppasswords", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2")
         gmail_link.bind("<Button-1>", lambda e: self.open_url("https://myaccount.google.com/apppasswords"))
         gmail_link.pack(side='left', padx=(0, 15))
         ttk.Button(gmail_url_frame, text="🌐 Open Gmail App Passwords", command=lambda: self.open_url("https://myaccount.google.com/apppasswords")).pack(side='left')

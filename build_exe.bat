@@ -7,7 +7,24 @@ echo        NEXUS HARVESTER - WINDOWS EXE BUILDER
 echo =======================================================
 echo.
 
-echo [1/3] Detecting Python installation...
+echo [1/4] Cleaning previous cache and old build artifacts...
+if exist "build" (
+    echo Removing old build folder...
+    rmdir /s /q "build"
+)
+if exist "dist" (
+    echo Removing old dist folder...
+    rmdir /s /q "dist"
+)
+if exist "__pycache__" (
+    rmdir /s /q "__pycache__"
+)
+if exist "Nexus Harvester.spec" (
+    del /q "Nexus Harvester.spec"
+)
+
+echo.
+echo [2/4] Detecting Python installation...
 set PYTHON_CMD=python
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
@@ -27,7 +44,7 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [2/3] Installing/updating required libraries (requests, pandas, openpyxl, pycountry, pyinstaller)...
+echo [3/4] Installing/updating required libraries (requests, pandas, openpyxl, pycountry, pyinstaller)...
 %PYTHON_CMD% -m pip install --upgrade pip
 %PYTHON_CMD% -m pip install requests pandas openpyxl pycountry pyinstaller
 if %errorlevel% neq 0 (
@@ -37,7 +54,7 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [3/3] Compiling standalone Nexus Harvester.exe with PyInstaller...
+echo [4/4] Compiling 100%% fresh standalone Nexus Harvester.exe with PyInstaller...
 %PYTHON_CMD% -m PyInstaller --noconsole --onefile --clean --name "Nexus Harvester" NexusHarvester.py
 
 if exist "dist\Nexus Harvester.exe" (
