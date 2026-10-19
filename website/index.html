@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Harvester — B2B Google Maps Scraper & AI Cold Email Machine</title>
+  <meta name="description" content="Extract thousands of verified local business leads from Google Maps, write hyper-personalized pitches with Groq AI, and send cold emails on complete autopilot. Zero monthly subscriptions. Universal Mac & Windows support.">
+  <meta name="keywords" content="Google Maps scraper, B2B lead generation software, local business lead finder, cold email automation, Apollo alternative, agency prospector, AI cold pitch generator">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="Nexus Harvester — The All-in-One B2B Lead Scraping & AI Email Machine">
+  <meta property="og:description" content="Stop paying $99/mo for Apollo. Extract verified leads from Google Maps, auto-write cold pitches with AI, and dispatch outreach with zero monthly SaaS fees.">
+  <meta property="og:image" content="assets/cover.jpg">
+  <meta property="og:url" content="https://dlpinnovations.com/products/nexus-harvester">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nexus Harvester | B2B Google Maps Scraper & AI Emailer">
+  <meta name="twitter:description" content="Extract verified leads, write AI pitches, and send cold emails on complete autopilot. Lifetime access.">
+  <meta name="twitter:image" content="assets/cover.jpg">
+  
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              dark: '#070b14',
+              card: '#0d1527',
+              border: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #050811;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .neon-glow {
+      box-shadow: 0 0 50px -10px rgba(37, 99, 235, 0.35);
+    }
+    .neon-cyan-glow {
+      box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.3);
+    }
+    .glass-card {
+      background: rgba(13, 21, 39, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
+
+  <!-- Schema.org SoftwareApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nexus Harvester",
+    "operatingSystem": "macOS 11.0+, Windows 10, Windows 11",
+    "applicationCategory": "BusinessApplication",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "97.00",
+        "priceCurrency": "USD",
+        "name": "Lifetime License (International)"
+      },
+      {
+        "@type": "Offer",
+        "price": "4999.00",
+        "priceCurrency": "INR",
+        "name": "Lifetime License (India)"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "142"
+    },
+    "description": "Desktop software that scrapes verified local business leads from Google Maps, generates personalized pitches with Groq AI, and dispatches cold email outreach directly via Gmail SMTP."
+  }
+  </script>
+</head>
+<body class="bg-grid antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- TOP NOTICE BAR -->
+  <div class="bg-gradient-to-r from-blue-900/60 via-indigo-900/40 to-cyan-900/60 border-b border-blue-500/20 py-2 px-4 text-center text-xs md:text-sm font-medium text-blue-200 flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">🔥 Launch Special</span>
+    <span>Get <strong>50% OFF</strong> Lifetime Access · Zero monthly subscription bills forever.</span>
+    <a href="#pricing" class="underline hover:text-white ml-2 font-bold">Claim Deal &rarr;</a>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-50 glass-card border-b border-slate-800/80 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/icon.png" alt="Nexus Harvester Logo" class="w-10 h-10 rounded-xl shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
+            NEXUS <span class="gradient-text font-black">HARVESTER</span>
+          </span>
+          <span class="block text-[10px] font-mono tracking-widest uppercase text-slate-400">B2B Lead Engine &amp; AI Outreach</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+        <a href="#features" class="hover:text-blue-400 transition-colors">Features</a>
+        <a href="#roi-calculator" class="hover:text-blue-400 transition-colors">ROI Calculator</a>
+        <a href="#comparison" class="hover:text-blue-400 transition-colors">Vs Apollo</a>
+        <a href="#how-it-works" class="hover:text-blue-400 transition-colors">How It Works</a>
+        <a href="#pricing" class="hover:text-blue-400 transition-colors">Pricing</a>
+        <a href="#faq" class="hover:text-blue-400 transition-colors">FAQs</a>
+      </div>
+
+      <!-- Currency Switcher & CTA -->
+      <div class="flex items-center gap-4">
+        <!-- Currency Pill Switcher -->
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-full p-1 flex items-center text-xs font-bold text-slate-300">
+          <button id="btn-usd" onclick="setCurrency('USD')" class="px-3 py-1 rounded-full bg-brand-600 text-white transition-all shadow-sm">
+            🇺🇸 USD ($)
+          </button>
+          <button id="btn-inr" onclick="setCurrency('INR')" class="px-3 py-1 rounded-full text-slate-400 hover:text-white transition-all">
+            🇮🇳 INR (₹)
+          </button>
+        </div>
+
+        <a href="#pricing" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition-all hover:scale-[1.02]">
+          <i data-lucide="download" class="w-4 h-4"></i> Get Nexus Now
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden">
+    <!-- Ambient Light Orbs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <!-- Tag Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-blue-500/30 text-blue-300 text-xs md:text-sm font-semibold mb-6 animate-pulse">
+        <i data-lucide="zap" class="w-4 h-4 text-cyan-400"></i>
+        <span>Universal Desktop Software · macOS (M1/M2/M3/M4 &amp; Intel) + Windows 10/11</span>
+      </div>
+
+      <!-- Main H1 Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.1] mb-6">
+        Turn Google Maps Into Your <br>
+        <span class="gradient-text">Private B2B Lead &amp; Sales Machine.</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
+        Stop burning <strong class="text-white">$99 to $299 every month</strong> on Apollo or ZoomInfo. Deep scrape thousands of local businesses with verified phone numbers, emails, and websites, auto-generate hyper-converting pitches with free Groq AI, and dispatch cold emails on complete autopilot.
+      </p>
+
+      <!-- Dual Download / Buy Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <a href="#pricing" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-base font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-500/25 transition-all hover:scale-105">
+          <i data-lucide="sparkles" class="w-5 h-5 text-yellow-300"></i>
+          <span>Get Lifetime Access — <span class="price-display">$97</span></span>
+        </a>
+
+        <a href="#direct-downloads" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 glass-card hover:bg-slate-800/80 text-slate-200 text-base font-bold px-7 py-4 rounded-2xl border border-slate-700/80 transition-all hover:border-slate-500">
+          <i data-lucide="download-cloud" class="w-5 h-5 text-cyan-400"></i>
+          <span>Download Installers (Mac &amp; Win)</span>
+        </a>
+      </div>
+
+      <!-- Reassurance Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs md:text-sm text-slate-400">
+        <span class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> One-Time Payment · Zero Monthly Fees</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> 100% Private · Data Stored Locally</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="gift" class="w-4 h-4 text-emerald-400"></i> Free Google &amp; Groq AI Tier Compatible</span>
+      </div>
+
+      <!-- HERO COVER IMAGE DISPLAY -->
+      <div class="mt-14 relative max-w-5xl mx-auto group">
+        <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-3xl blur-2xl opacity-40 group-hover:opacity-70 transition duration-700"></div>
+        <div class="relative rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-slate-950">
+          <img src="assets/cover.jpg" alt="Nexus Harvester Software 3D Cover Mockup" class="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-500">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE ROI CALCULATOR SECTION -->
+  <section id="roi-calculator" class="py-20 bg-slate-950/60 border-y border-slate-800/80 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Interactive Cost Analysis</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">See How Much Money You Save Every Year</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto mt-2 text-sm md:text-base">Compare recurring monthly SaaS bills against a single one-time purchase of Nexus Harvester.</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 md:p-10 border border-blue-500/20 neon-glow">
+        <div class="mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <label class="text-sm md:text-base font-bold text-slate-200">How many verified leads do you prospect per month?</label>
+            <span id="slider-val-label" class="font-mono text-xl font-extrabold text-cyan-400">5,000 leads/mo</span>
+          </div>
+          <input type="range" id="leads-slider" min="1000" max="30000" step="1000" value="5000" oninput="calculateROI()" class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+          <div class="flex justify-between text-xs font-mono text-slate-500 mt-2">
+            <span>1,000 leads</span>
+            <span>10,000 leads</span>
+            <span>20,000 leads</span>
+            <span>30,000+ leads</span>
+          </div>
+        </div>
+
+        <!-- Comparison Output Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-800">
+          <!-- Traditional SaaS -->
+          <div class="bg-red-950/20 border border-red-500/20 rounded-2xl p-6 text-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-red-400">Traditional Lead SaaS</span>
+            <div id="apollo-cost" class="text-3xl font-black text-red-300 mt-2 font-mono">$1,188 / yr</div>
+            <p class="text-xs text-slate-400 mt-1">($99/mo recurring subscription bill)</p>
+          </div>
+
+          <!-- Nexus Harvester -->
+          <div class="bg-blue-950/30 border border-blue-500/30 rounded-2xl p-6 text-center relative overflow-hidden">
+            <div class="absolute top-2 right-2 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">LIFETIME</div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Nexus Harvester</span>
+            <div id="nexus-cost" class="text-3xl font-black text-emerald-400 mt-2 font-mono">$97</div>
+            <p class="text-xs text-slate-400 mt-1">One-time payment · No renewal fees</p>
+          </div>
+
+          <!-- Total Savings -->
+          <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-2xl p-6 text-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Your First-Year Savings</span>
+            <div id="savings-cost" class="text-3xl font-black text-emerald-300 mt-2 font-mono font-bold">$1,091 Saved</div>
+            <p class="text-xs text-emerald-400/80 mt-1 font-semibold">1,124% Immediate ROI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES GRID SECTION -->
+  <section id="features" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Unrivaled Power Under The Hood</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Everything You Need to Scale Outbound Sales</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto mt-3 text-base">Four integrated operational engines engineered to give agency owners, solopreneurs, and sales reps an unfair advantage.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Feature 1: Data Harvester -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 transition-all hover:scale-[1.01] hover:border-blue-500/50">
+        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6">
+          <i data-lucide="map-pin" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">1. Deep Google Maps Data Harvester</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          Target any industry or niche across any global city, state, or country. Pulls direct business names, full physical addresses, phone numbers, verified websites, star ratings, and social profiles (Facebook, Instagram, LinkedIn).
+        </p>
+        <ul class="space-y-2.5 text-xs font-semibold text-slate-300">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> International ISO country &amp; state dropdowns with autocomplete</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Star rating &amp; digital asset filters (find businesses with missing websites)</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 1-click export to clean, formatted CSV or Excel spreadsheets</li>
+        </ul>
+      </div>
+
+      <!-- Feature 2: Buyer Prospector -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 transition-all hover:scale-[1.01] hover:border-cyan-500/50">
+        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6">
+          <i data-lucide="briefcase" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">2. Agency Buyer Prospector</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          Looking to sell compiled lead lists, SEO audits, web redesigns, or AI receptionists? Filter high-ticket marketing agencies, consultancies, and service businesses ready to buy qualified data.
+        </p>
+        <ul class="space-y-2.5 text-xs font-semibold text-slate-300">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Sell verified datasets for $150–$300 per clean local list</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Direct 1-click pass from lead table straight into outreach deck</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Live tracking of contacted leads to eliminate duplicate pitches</li>
+        </ul>
+      </div>
+
+      <!-- Feature 3: Groq AI Pitch Generator -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 transition-all hover:scale-[1.01] hover:border-indigo-500/50">
+        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6">
+          <i data-lucide="bot" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">3. Ultra-Fast Groq AI Cold Pitcher</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          Writing cold emails is the hardest bottleneck. Nexus Harvester integrates directly with free Groq AI models to generate hyper-personalized 1-on-1 cold emails in under 1.5 seconds per lead.
+        </p>
+        <ul class="space-y-2.5 text-xs font-semibold text-slate-300">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 5 pre-loaded agency pitch templates (SEO, Web Design, AI Bots, Reels)</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Dynamic variable tags: inject <code class="text-cyan-300">{name}</code>, <code class="text-cyan-300">{city}</code>, and <code class="text-cyan-300">{rating}</code></li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> 100% Free Groq API key support (No monthly fees or credit card needed)</li>
+        </ul>
+      </div>
+
+      <!-- Feature 4: Gmail SMTP Dispatcher -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 transition-all hover:scale-[1.01] hover:border-emerald-500/50">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+          <i data-lucide="mail-check" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">4. Direct Gmail SMTP Outreach Deck</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          Skip expensive cold email software subscriptions. Send individual or bulk personalized cold emails straight from your own Gmail address using official secure Google App Passwords.
+        </p>
+        <ul class="space-y-2.5 text-xs font-semibold text-slate-300">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Sends from your genuine inbox for superior deliverability</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Multi-lead checkbox selection for rapid targeted batch sending</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Live visual progress counters and success confirmation chimes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE SECTION -->
+  <section id="comparison" class="py-20 bg-slate-950/80 border-y border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Unbeatable Economics</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Nexus Harvester vs Traditional Alternatives</h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse glass-card rounded-2xl overflow-hidden border border-slate-800">
+          <thead>
+            <tr class="bg-slate-900/80 text-xs font-bold uppercase tracking-wider text-slate-300 border-b border-slate-800">
+              <th class="p-4 md:p-5">Feature</th>
+              <th class="p-4 md:p-5 text-blue-400 bg-blue-950/40">Nexus Harvester</th>
+              <th class="p-4 md:p-5 text-slate-400">Apollo / ZoomInfo</th>
+              <th class="p-4 md:p-5 text-slate-400">Manual Copy-Pasting</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/70 text-sm">
+            <tr>
+              <td class="p-4 font-semibold text-white">Monthly Subscription</td>
+              <td class="p-4 font-bold text-emerald-400 bg-blue-950/20">$0 / mo (Zero Recurring)</td>
+              <td class="p-4 text-red-400">$99 – $299 / month</td>
+              <td class="p-4 text-slate-400">$0 (Costs 80+ hours)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Lead Extraction Source</td>
+              <td class="p-4 font-semibold text-white bg-blue-950/20">Google Maps (Live 2026 data)</td>
+              <td class="p-4 text-slate-400">Stale scraped databases</td>
+              <td class="p-4 text-slate-400">Manual Google search</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Built-in AI Pitch Writer</td>
+              <td class="p-4 font-bold text-emerald-400 bg-blue-950/20">Included (Free Groq AI)</td>
+              <td class="p-4 text-slate-400">Paid Add-on ($39/mo)</td>
+              <td class="p-4 text-slate-400">Manual typing</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Direct Email Dispatch</td>
+              <td class="p-4 font-bold text-emerald-400 bg-blue-950/20">Included (Gmail SMTP)</td>
+              <td class="p-4 text-slate-400">Limited credits per month</td>
+              <td class="p-4 text-slate-400">Manual 1-by-1 sending</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Data Privacy</td>
+              <td class="p-4 font-bold text-emerald-400 bg-blue-950/20">100% Stored on Your Device</td>
+              <td class="p-4 text-slate-400">Stored on their servers</td>
+              <td class="p-4 text-slate-400">Messy personal sheets</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-white">Operating System</td>
+              <td class="p-4 font-semibold text-white bg-blue-950/20">macOS (.dmg) + Windows (.exe)</td>
+              <td class="p-4 text-slate-400">Web browser only</td>
+              <td class="p-4 text-slate-400">N/A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (3 SIMPLE STEPS) -->
+  <section id="how-it-works" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Effortless Setup</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Up and Running in 3 Minutes</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto mt-3 text-base">Nexus Harvester connects seamlessly with your own free accounts. No server setup or coding required.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 text-center relative">
+        <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/40">1</div>
+        <h3 class="text-xl font-bold text-white mb-2">Connect Google Places API</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Click the direct link in Tab 4 to open Google Cloud Console. Enable "Places API (New)" and paste your key. Google includes <strong class="text-white">$200 free credit monthly</strong> (~10,000+ free searches).
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 text-center relative">
+        <div class="w-12 h-12 rounded-full bg-cyan-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/40">2</div>
+        <h3 class="text-xl font-bold text-white mb-2">Connect Free Groq AI</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Open console.groq.com to get your 100% free API key. Paste it into Settings to activate instant AI cold email drafting for all your prospective client outreach.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 text-center relative">
+        <div class="w-12 h-12 rounded-full bg-emerald-600 text-white font-black text-xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/40">3</div>
+        <h3 class="text-xl font-bold text-white mb-2">Harvest &amp; Send Outreach</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Type your target keyword and location, extract hundreds of verified businesses, click "Generate AI Draft", and dispatch personalized pitches straight to inboxes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing" class="py-24 bg-slate-950/90 border-t border-slate-800 relative">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Limited Launch Promotion</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Get Nexus Harvester For Life</h2>
+      <p class="text-slate-400 max-w-xl mx-auto mt-3 text-base">One payment today. No subscriptions. No renewals. Free future software updates.</p>
+
+      <!-- Currency Switcher Banner -->
+      <div class="mt-8 mb-10 inline-flex items-center gap-3 p-1.5 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl">
+        <span class="text-xs font-bold text-slate-400 pl-3">Select Currency:</span>
+        <button id="card-btn-usd" onclick="setCurrency('USD')" class="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-bold shadow-md transition-all">
+          🇺🇸 International ($ USD)
+        </button>
+        <button id="card-btn-inr" onclick="setCurrency('INR')" class="px-4 py-2 rounded-xl text-slate-300 hover:text-white text-sm font-bold transition-all">
+          🇮🇳 India (₹ INR)
+        </button>
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="glass-card rounded-3xl p-8 md:p-12 border-2 border-blue-500/50 neon-glow text-left relative overflow-hidden">
+        <div class="absolute top-5 right-5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 text-xs font-extrabold uppercase px-3.5 py-1 rounded-full shadow-lg">
+          50% OFF LAUNCH
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-800">
+          <div>
+            <h3 class="text-2xl font-extrabold text-white">Nexus Harvester Commercial License</h3>
+            <p class="text-slate-400 text-sm mt-1">Universal cross-platform access for Mac and Windows.</p>
+          </div>
+          <div class="text-right">
+            <span id="strike-price" class="text-lg text-slate-500 line-through font-mono mr-2">$197</span>
+            <span id="main-price" class="text-4xl md:text-5xl font-black text-white font-mono tracking-tight">$97</span>
+            <span class="block text-xs font-bold text-emerald-400 mt-1">One-Time Payment · Lifetime Access</span>
+          </div>
+        </div>
+
+        <!-- What is included -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-8">
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300"><strong>macOS Disk Image (`.dmg`)</strong> for M1/M2/M3/M4 &amp; Intel</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300"><strong>Windows Executable (`.exe`)</strong> for Windows 10 &amp; 11</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300">Unlimited Google Maps business data scraping</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300">AI Cold Pitch Generator with free Groq models</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300">Full agency outreach templates &amp; CSV export</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300">Direct Gmail SMTP 1-on-1 and bulk sender deck</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300">Full Commercial Rights (Sell lead lists for profit)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+            <span class="text-sm text-slate-300">30-Day 100% Money-Back Guarantee</span>
+          </div>
+        </div>
+
+        <!-- Buy / Download CTA Box -->
+        <div class="pt-6 border-t border-slate-800 text-center">
+          <a href="#direct-downloads" id="checkout-btn" class="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white text-lg font-bold px-8 py-5 rounded-2xl shadow-xl shadow-blue-500/30 transition-all hover:scale-[1.02]">
+            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+            <span>Buy Lifetime License Now (<span class="price-display">$97</span>)</span>
+          </a>
+
+          <!-- Payment Badges -->
+          <div id="payment-badges-usd" class="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-400">
+            <span>💳 Supported: Visa, MasterCard, Amex, PayPal, Apple Pay</span>
+            <span class="text-slate-600">|</span>
+            <span class="text-emerald-400">🔒 256-Bit SSL Encrypted</span>
+          </div>
+          <div id="payment-badges-inr" class="hidden mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-400">
+            <span>⚡ Supported: UPI (GPay, PhonePe, Paytm), NetBanking, RuPay, Credit/Debit Cards</span>
+            <span class="text-slate-600">|</span>
+            <span class="text-emerald-400">🔒 256-Bit SSL Encrypted Razorpay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECT DOWNLOADS SECTION -->
+  <section id="direct-downloads" class="py-20 max-w-5xl mx-auto px-6 text-center">
+    <div class="mb-10">
+      <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Instant Access</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-2">Download Installers</h2>
+      <p class="text-slate-400 text-sm mt-1">Get the native binary for your operating system.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Mac Card -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 text-left hover:border-blue-500/40 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+            <i data-lucide="apple" class="w-7 h-7"></i>
+          </div>
+          <span class="text-xs font-mono bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">macOS Universal</span>
+        </div>
+        <h3 class="text-xl font-bold text-white">Nexus Harvester for Mac</h3>
+        <p class="text-xs text-slate-400 mt-1 mb-6">Compatible with macOS Big Sur, Monterey, Ventura, Sonoma, Sequoia (M1/M2/M3/M4 &amp; Intel 64-bit).</p>
+        <a href="downloads/Nexus-Harvester.dmg" download class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 px-6 rounded-xl border border-slate-600 transition-all hover:scale-[1.02]">
+          <i data-lucide="download" class="w-4 h-4 text-cyan-400"></i> Download Nexus Harvester.dmg
+        </a>
+      </div>
+
+      <!-- Windows Card -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-800 text-left hover:border-cyan-500/40 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+            <i data-lucide="monitor" class="w-7 h-7"></i>
+          </div>
+          <span class="text-xs font-mono bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/30">Windows 64-Bit</span>
+        </div>
+        <h3 class="text-xl font-bold text-white">Nexus Harvester for Windows</h3>
+        <p class="text-xs text-slate-400 mt-1 mb-6">Standalone portable `.exe`. Double-click to run on Windows 10 &amp; Windows 11. Zero Python or setup needed.</p>
+        <a href="downloads/Nexus-Harvester.exe" download class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:scale-[1.02]">
+          <i data-lucide="download" class="w-4 h-4 text-white"></i> Download Nexus Harvester.exe
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-24 bg-slate-950/90 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-bold">Got Questions?</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <details class="glass-card rounded-2xl p-6 border border-slate-800 group">
+          <summary class="font-bold text-lg text-white cursor-pointer list-none flex justify-between items-center">
+            <span>Are there any recurring monthly subscriptions?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+            None whatsoever. You purchase a lifetime license once and own Nexus Harvester forever. You never receive a monthly bill, credit renewal, or unexpected recurring fee.
+          </p>
+        </details>
+
+        <!-- Q2 -->
+        <details class="glass-card rounded-2xl p-6 border border-slate-800 group">
+          <summary class="font-bold text-lg text-white cursor-pointer list-none flex justify-between items-center">
+            <span>How much does the Google Places API cost to use?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+            Google provides every user with a <strong class="text-white">$200 recurring credit every month</strong> on Google Cloud Console. This is enough to scrape roughly 10,000+ local businesses every month for free without paying a single dollar.
+          </p>
+        </details>
+
+        <!-- Q3 -->
+        <details class="glass-card rounded-2xl p-6 border border-slate-800 group">
+          <summary class="font-bold text-lg text-white cursor-pointer list-none flex justify-between items-center">
+            <span>Is Groq AI really 100% free?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+            Yes! Groq provides free developer API keys with fast Llama-3 and Open-source AI models without requiring any credit card. Nexus Harvester uses this API to auto-write cold emails in seconds.
+          </p>
+        </details>
+
+        <!-- Q4 -->
+        <details class="glass-card rounded-2xl p-6 border border-slate-800 group">
+          <summary class="font-bold text-lg text-white cursor-pointer list-none flex justify-between items-center">
+            <span>Does it work on my operating system?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+            Yes! Nexus Harvester comes in two native packages: a universal macOS disk image installer (`.dmg`) supporting all Apple Silicon (M1/M2/M3/M4) and Intel Macs, and a standalone executable (`.exe`) for Windows 10 &amp; 11 (64-bit).
+          </p>
+        </details>
+
+        <!-- Q5 -->
+        <details class="glass-card rounded-2xl p-6 border border-slate-800 group">
+          <summary class="font-bold text-lg text-white cursor-pointer list-none flex justify-between items-center">
+            <span>Can I sell the scraped lead lists to clients?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+            Yes! Your purchase includes full commercial usage rights. Many agencies and freelancers compile targeted niche lists (e.g. dentists, plumbers, roofers in a specific metro area) and sell the verified dataset for $100 to $300 per list.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-slate-800/80 bg-slate-950 text-slate-500 text-xs text-center">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2">
+        <img src="assets/icon.png" alt="Nexus Harvester Logo" class="w-6 h-6 rounded-md">
+        <span class="font-bold text-slate-300">Nexus Harvester</span>
+        <span>· &copy; 2026 DLP Innovations Pvt Ltd. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#features" class="hover:text-slate-300">Features</a>
+        <a href="#pricing" class="hover:text-slate-300">Pricing</a>
+        <a href="#direct-downloads" class="hover:text-slate-300">Downloads</a>
+        <a href="#faq" class="hover:text-slate-300">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR CURRENCY SWITCHER & ROI CALCULATOR -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    let currentCurrency = 'USD';
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      const btnUsd = document.getElementById('btn-usd');
+      const btnInr = document.getElementById('btn-inr');
+      const cardBtnUsd = document.getElementById('card-btn-usd');
+      const cardBtnInr = document.getElementById('card-btn-inr');
+      
+      const priceDisplays = document.querySelectorAll('.price-display');
+      const mainPrice = document.getElementById('main-price');
+      const strikePrice = document.getElementById('strike-price');
+      const badgesUsd = document.getElementById('payment-badges-usd');
+      const badgesInr = document.getElementById('payment-badges-inr');
+
+      if (curr === 'INR') {
+        // Toggle top nav buttons
+        btnInr.className = 'px-3 py-1 rounded-full bg-brand-600 text-white transition-all shadow-sm';
+        btnUsd.className = 'px-3 py-1 rounded-full text-slate-400 hover:text-white transition-all';
+        // Toggle card buttons
+        cardBtnInr.className = 'px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-bold shadow-md transition-all';
+        cardBtnUsd.className = 'px-4 py-2 rounded-xl text-slate-300 hover:text-white text-sm font-bold transition-all';
+        
+        priceDisplays.forEach(el => el.textContent = '₹4,999');
+        mainPrice.textContent = '₹4,999';
+        strikePrice.textContent = '₹14,999';
+
+        badgesUsd.classList.add('hidden');
+        badgesInr.classList.remove('hidden');
+      } else {
+        // Toggle top nav buttons
+        btnUsd.className = 'px-3 py-1 rounded-full bg-brand-600 text-white transition-all shadow-sm';
+        btnInr.className = 'px-3 py-1 rounded-full text-slate-400 hover:text-white transition-all';
+        // Toggle card buttons
+        cardBtnUsd.className = 'px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-bold shadow-md transition-all';
+        cardBtnInr.className = 'px-4 py-2 rounded-xl text-slate-300 hover:text-white text-sm font-bold transition-all';
+
+        priceDisplays.forEach(el => el.textContent = '$97');
+        mainPrice.textContent = '$97';
+        strikePrice.textContent = '$197';
+
+        badgesInr.classList.add('hidden');
+        badgesUsd.classList.remove('hidden');
+      }
+      calculateROI();
+    }
+
+    function calculateROI() {
+      const slider = document.getElementById('leads-slider');
+      const count = parseInt(slider.value);
+      document.getElementById('slider-val-label').textContent = count.toLocaleString() + ' leads/mo';
+
+      let apolloAnnual = 0;
+      let nexusCost = 0;
+      let savings = 0;
+
+      if (currentCurrency === 'INR') {
+        // Indian equivalent calculation
+        const apolloInrMonth = 8200;
+        apolloAnnual = apolloInrMonth * 12;
+        nexusCost = 4999;
+        savings = apolloAnnual - nexusCost;
+
+        document.getElementById('apollo-cost').textContent = '₹' + apolloAnnual.toLocaleString('en-IN') + ' / yr';
+        document.getElementById('nexus-cost').textContent = '₹4,999';
+        document.getElementById('savings-cost').textContent = '₹' + savings.toLocaleString('en-IN') + ' Saved';
+      } else {
+        // USD calculation
+        const apolloUsdMonth = 99;
+        apolloAnnual = apolloUsdMonth * 12;
+        nexusCost = 97;
+        savings = apolloAnnual - nexusCost;
+
+        document.getElementById('apollo-cost').textContent = '$' + apolloAnnual.toLocaleString() + ' / yr';
+        document.getElementById('nexus-cost').textContent = '$97';
+        document.getElementById('savings-cost').textContent = '$' + savings.toLocaleString() + ' Saved';
+      }
+    }
+  </script>
+</body>
+</html>
