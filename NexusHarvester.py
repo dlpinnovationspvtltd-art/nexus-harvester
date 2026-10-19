@@ -16,6 +16,7 @@ import pycountry
 import webbrowser
 import unicodedata
 import subprocess
+import sys
 
 SETTINGS_FILE = os.path.join(os.path.expanduser("~"), ".lead_engine_settings.json")
 HISTORY_FILE = os.path.join(os.path.expanduser("~"), ".lead_engine_history.json")
@@ -181,7 +182,7 @@ class ScraperTab:
         self.search_btn = ttk.Button(search_frame, text="🔍 Start Deep Scrape", command=self.start_search_thread, style="Accent.TButton")
         self.search_btn.pack(side='left', padx=5)
         
-        self.cancel_btn = ttk.Button(search_frame, text="🛑 Stop", command=self.stop_search, state=tk.DISABLED)
+        self.cancel_btn = ttk.Button(search_frame, text="🛑 Stop", command=self.stop_search, state=tk.DISABLED, style="Danger.TButton")
         self.cancel_btn.pack(side='left', padx=5)
         
         # ---------------- LOCATION & FILTERS FRAME ----------------
@@ -888,7 +889,7 @@ class MailerTab:
         self.left_single_btn = ttk.Button(left_btn_row, text="✉️ Send 1 to Selected", command=self.send_single_customer)
         self.left_single_btn.pack(side='left', fill='x', expand=True, padx=4)
         
-        self.left_stop_btn = ttk.Button(left_btn_row, text="🛑 Stop", command=self.stop_sending, state=tk.DISABLED)
+        self.left_stop_btn = ttk.Button(left_btn_row, text="🛑 Stop", command=self.stop_sending, state=tk.DISABLED, style="Danger.TButton")
         self.left_stop_btn.pack(side='left', padx=(4, 0))
 
         lead_footer = ttk.Frame(left_col)
@@ -926,7 +927,7 @@ class MailerTab:
         self.single_send_btn = ttk.Button(send_btn_row, text="✉️ Send to 1 Selected Lead", command=self.send_single_customer)
         self.single_send_btn.pack(side='left', padx=(0, 8))
         
-        self.stop_send_btn = ttk.Button(send_btn_row, text="🛑 Stop", command=self.stop_sending, state=tk.DISABLED)
+        self.stop_send_btn = ttk.Button(send_btn_row, text="🛑 Stop", command=self.stop_sending, state=tk.DISABLED, style="Danger.TButton")
         self.stop_send_btn.pack(side='left')
         
         status_row = ttk.Frame(send_frame)
@@ -962,7 +963,7 @@ class MailerTab:
         ttk.Button(tag_bar, text="{city}", command=lambda: self.insert_var("{city}")).pack(side='left', padx=2)
         ttk.Button(tag_bar, text="{rating}", command=lambda: self.insert_var("{rating}")).pack(side='left', padx=2)
         
-        self.prompt_text = tk.Text(prompt_card, height=2, font=("Segoe UI", 11), wrap='word')
+        self.prompt_text = tk.Text(prompt_card, height=2, font=("Segoe UI", 11), wrap='word', relief='solid', borderwidth=1, padx=6, pady=6)
         self.prompt_text.pack(fill='x', pady=(0, 5))
         self.prompt_text.insert('1.0', "Write a short, engaging 3-sentence cold pitch to {name} in {city} offering high-converting local customer leads.")
         
@@ -984,7 +985,7 @@ class MailerTab:
         self.subject_entry.pack(fill='x', pady=(0, 6))
         
         ttk.Label(editor_card, text="Email Body (Freely edit text below):", font=("Segoe UI", 11, "bold")).pack(anchor='w', pady=(2, 2))
-        self.body_text = scrolledtext.ScrolledText(editor_card, height=7, font=("Segoe UI", 11), wrap='word')
+        self.body_text = scrolledtext.ScrolledText(editor_card, height=7, font=("Segoe UI", 11), wrap='word', relief='solid', borderwidth=1, padx=6, pady=6)
         self.body_text.pack(fill='both', expand=True, pady=(0, 4))
         
         self.load_active_template()
@@ -1549,33 +1550,11 @@ class NexusHarvesterApp:
 
         # Configure modern ttk Theme & Styles matching macOS aesthetic
         self.style = ttk.Style(self.root)
-        if os.name == 'nt':
-            if 'vista' in self.style.theme_names():
-                self.style.theme_use('vista')
-            elif 'winnative' in self.style.theme_names():
-                self.style.theme_use('winnative')
-
-        self.style.configure(
-            "Accent.TButton",
-            font=("Segoe UI", 10, "bold")
-        )
-        self.style.configure(
-            "Treeview",
-            rowheight=26,
-            font=("Segoe UI", 10)
-        )
-        self.style.configure(
-            "Treeview.Heading",
-            font=("Segoe UI", 10, "bold")
-        )
-        self.style.configure(
-            "TNotebook.Tab",
-            padding=(16, 8),
-            font=("Segoe UI", 10, "bold")
-        )
+        self.apply_modern_theme()
         
         try:
-            icon_path = os.path.join(os.path.dirname(__file__), "icon_512x512.png")
+            base_dir = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+            icon_path = os.path.join(base_dir, "icon_512x512.png")
             if os.path.exists(icon_path):
                 img = tk.PhotoImage(file=icon_path)
                 self.root.iconphoto(True, img)
@@ -1612,6 +1591,118 @@ class NexusHarvesterApp:
         from tkinter import ttk
         if event.widget == self.root or isinstance(event.widget, (ttk.Frame, ttk.LabelFrame, ttk.Notebook, tk.Frame)):
             self.root.focus_set()
+
+    def apply_modern_theme(self):
+        if os.name == 'nt':
+            if 'clam' in self.style.theme_names():
+                self.style.theme_use('clam')
+
+            BG_COLOR = "#f4f6f9"
+            CARD_BG = "#ffffff"
+            TEXT_MAIN = "#1e293b"
+            TEXT_MUTED = "#64748b"
+            PRIMARY = "#0066cc"
+            PRIMARY_HOVER = "#0052a3"
+            BORDER = "#d1d5db"
+            ROW_SELECT = "#2563eb"
+            HEADER_BG = "#f1f5f9"
+
+            self.root.configure(bg=BG_COLOR)
+
+            self.style.configure(".", background=BG_COLOR, foreground=TEXT_MAIN, font=("Segoe UI", 10))
+            self.style.configure("TFrame", background=BG_COLOR)
+            self.style.configure("TLabelframe", background=CARD_BG, bordercolor=BORDER, relief="solid", borderwidth=1)
+            self.style.configure("TLabelframe.Label", background=CARD_BG, foreground=TEXT_MAIN, font=("Segoe UI", 10, "bold"))
+
+            # Modern flat tabs
+            self.style.configure("TNotebook", background=BG_COLOR, tabmargins=[4, 4, 4, 0], borderwidth=0)
+            self.style.configure("TNotebook.Tab", background="#e2e8f0", foreground=TEXT_MUTED, padding=[18, 9], font=("Segoe UI", 10, "bold"), borderwidth=0)
+            self.style.map("TNotebook.Tab",
+                background=[("selected", CARD_BG), ("active", "#cbd5e1")],
+                foreground=[("selected", PRIMARY), ("active", TEXT_MAIN)]
+            )
+
+            # Modern Standard Buttons
+            self.style.configure("TButton",
+                background="#ffffff",
+                foreground=TEXT_MAIN,
+                font=("Segoe UI", 10),
+                padding=[12, 6],
+                relief="solid",
+                borderwidth=1,
+                bordercolor=BORDER
+            )
+            self.style.map("TButton",
+                background=[("active", "#f1f5f9"), ("pressed", "#e2e8f0"), ("disabled", "#f8fafc")],
+                foreground=[("disabled", "#94a3b8")]
+            )
+
+            # Accent Buttons (Blue)
+            self.style.configure("Accent.TButton",
+                background=PRIMARY,
+                foreground="#ffffff",
+                font=("Segoe UI", 10, "bold"),
+                padding=[14, 7],
+                relief="flat",
+                borderwidth=0
+            )
+            self.style.map("Accent.TButton",
+                background=[("active", PRIMARY_HOVER), ("pressed", "#003d7a"), ("disabled", "#94a3b8")],
+                foreground=[("disabled", "#ffffff")]
+            )
+
+            # Danger Buttons (Red)
+            self.style.configure("Danger.TButton",
+                background="#dc2626",
+                foreground="#ffffff",
+                font=("Segoe UI", 10, "bold"),
+                padding=[12, 6],
+                relief="flat",
+                borderwidth=0
+            )
+            self.style.map("Danger.TButton",
+                background=[("active", "#b91c1c"), ("pressed", "#991b1b")]
+            )
+
+            # Treeview (Modern Lead Table)
+            self.style.configure("Treeview",
+                background=CARD_BG,
+                fieldbackground=CARD_BG,
+                foreground=TEXT_MAIN,
+                rowheight=28,
+                font=("Segoe UI", 10),
+                borderwidth=1,
+                relief="solid",
+                bordercolor=BORDER
+            )
+            self.style.configure("Treeview.Heading",
+                background=HEADER_BG,
+                foreground=TEXT_MAIN,
+                font=("Segoe UI", 10, "bold"),
+                padding=[6, 7],
+                relief="flat",
+                borderwidth=1
+            )
+            self.style.map("Treeview",
+                background=[("selected", ROW_SELECT)],
+                foreground=[("selected", "#ffffff")]
+            )
+            self.style.map("Treeview.Heading",
+                background=[("active", "#e2e8f0")]
+            )
+
+            self.style.configure("TEntry", fieldbackground=CARD_BG, foreground=TEXT_MAIN, padding=5)
+            self.style.configure("TCombobox", fieldbackground=CARD_BG, foreground=TEXT_MAIN, padding=5)
+            self.style.configure("TSpinbox", fieldbackground=CARD_BG, foreground=TEXT_MAIN, padding=5)
+            self.style.configure("Horizontal.TProgressbar", background=PRIMARY, troughcolor="#e2e8f0", borderwidth=0)
+        else:
+            # macOS Native Theme (aqua)
+            if 'aqua' in self.style.theme_names():
+                self.style.theme_use('aqua')
+            self.style.configure("Accent.TButton", font=("Segoe UI", 10, "bold"))
+            self.style.configure("Treeview", rowheight=26, font=("Segoe UI", 10))
+            self.style.configure("Treeview.Heading", font=("Segoe UI", 10, "bold"))
+            self.style.configure("TNotebook.Tab", padding=(16, 8), font=("Segoe UI", 10, "bold"))
             
     def load_settings(self):
         agency_templates = {
@@ -1661,6 +1752,20 @@ class NexusHarvesterApp:
                     default["templates"] = merged_templates
             except:
                 pass
+
+        # Purge hardcoded/developer test keys from disk and memory
+        DEVELOPER_KEYS_BLACKLIST = {
+            "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric",
+        }
+        if default.get("api_key") in DEVELOPER_KEYS_BLACKLIST or "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric" in str(default.get("api_key", "")):
+            default["api_key"] = ""
+            try:
+                if os.path.exists(SETTINGS_FILE):
+                    with open(SETTINGS_FILE, 'w') as f:
+                        json.dump(default, f, indent=4)
+            except Exception:
+                pass
+
         return default
 
     def open_url(self, url):
@@ -1668,8 +1773,14 @@ class NexusHarvesterApp:
 
     def auto_sync_settings(self):
         try:
+            DEVELOPER_KEYS_BLACKLIST = {
+                "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric",
+            }
             if hasattr(self, 'api_key_entry'):
-                self.settings["api_key"] = self.api_key_entry.get().strip()
+                val = self.api_key_entry.get().strip()
+                if val in DEVELOPER_KEYS_BLACKLIST or "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric" in val:
+                    val = ""
+                self.settings["api_key"] = val
             if hasattr(self, 'email_entry'):
                 self.settings["email"] = self.email_entry.get().strip()
             if hasattr(self, 'password_entry'):
@@ -1677,7 +1788,7 @@ class NexusHarvesterApp:
             if hasattr(self, 'groq_api_entry'):
                 self.settings["groq_api_key"] = self.groq_api_entry.get().strip()
             with open(SETTINGS_FILE, 'w') as f:
-                json.dump(self.settings, f)
+                json.dump(self.settings, f, indent=4)
         except Exception:
             pass
 
@@ -1779,12 +1890,21 @@ class NexusHarvesterApp:
         threading.Thread(target=_test, daemon=True).start()
 
     def save_settings(self):
-        self.settings["api_key"] = self.api_key_entry.get().strip()
-        self.settings["email"] = self.email_entry.get().strip()
-        self.settings["password"] = self.password_entry.get().strip()
-        self.settings["groq_api_key"] = self.groq_api_entry.get().strip()
+        DEVELOPER_KEYS_BLACKLIST = {
+            "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric",
+        }
+        key = self.api_key_entry.get().strip() if hasattr(self, 'api_key_entry') else self.settings.get("api_key", "")
+        if key in DEVELOPER_KEYS_BLACKLIST or "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric" in key:
+            key = ""
+        self.settings["api_key"] = key
+        if hasattr(self, 'email_entry'):
+            self.settings["email"] = self.email_entry.get().strip()
+        if hasattr(self, 'password_entry'):
+            self.settings["password"] = self.password_entry.get().strip()
+        if hasattr(self, 'groq_api_entry'):
+            self.settings["groq_api_key"] = self.groq_api_entry.get().strip()
         with open(SETTINGS_FILE, 'w') as f:
-            json.dump(self.settings, f)
+            json.dump(self.settings, f, indent=4)
             
     def notify_saved(self):
         self.save_settings()
@@ -1793,11 +1913,33 @@ class NexusHarvesterApp:
             self.save_status_lbl.config(text="✅ Configuration Successfully Saved & Active!", foreground="#00c853")
             def _revert():
                 try:
-                    self.save_status_lbl.config(text="Credentials stored locally and securely on your Mac.", foreground="#666666")
+                    self.save_status_lbl.config(text="Credentials stored locally and securely on your device.", foreground="#666666")
                 except Exception:
                     pass
             self.root.after(2500, _revert)
         messagebox.showinfo("Saved", "Settings saved successfully!\nAll API keys and credentials are now active.")
+
+    def reset_to_factory_defaults(self):
+        if messagebox.askyesno("Reset All Configuration", "Are you sure you want to completely clear all saved API keys, SMTP credentials, and reset settings to default?\n\nThis will purge local settings on this device."):
+            try:
+                if os.path.exists(SETTINGS_FILE):
+                    os.remove(SETTINGS_FILE)
+            except Exception:
+                pass
+            self.settings = self.load_settings()
+            if hasattr(self, 'api_key_entry'):
+                self.api_key_entry.delete(0, tk.END)
+                self.google_status_lbl.config(text="⚪ Not tested", foreground="#666666")
+            if hasattr(self, 'groq_api_entry'):
+                self.groq_api_entry.delete(0, tk.END)
+                self.groq_status_lbl.config(text="⚪ Not tested", foreground="#666666")
+            if hasattr(self, 'email_entry'):
+                self.email_entry.delete(0, tk.END)
+            if hasattr(self, 'password_entry'):
+                self.password_entry.delete(0, tk.END)
+                self.gmail_status_lbl.config(text="⚪ Not tested", foreground="#666666")
+            self.auto_sync_settings()
+            messagebox.showinfo("Reset Complete", "All credentials and local configuration have been cleared successfully.")
 
     def load_history(self):
         if os.path.exists(HISTORY_FILE):
@@ -1813,6 +1955,8 @@ class NexusHarvesterApp:
 
     def setup_settings_tab(self):
         canvas = tk.Canvas(self.tab_settings, highlightthickness=0)
+        if os.name == 'nt':
+            canvas.configure(bg="#f4f6f9")
         scrollbar = ttk.Scrollbar(self.tab_settings, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
         
@@ -1846,7 +1990,7 @@ class NexusHarvesterApp:
         card_google = ttk.LabelFrame(scrollable_frame, text=" 🗺️ 1. Google Places API (Google Maps Scraping) ", padding=15)
         card_google.pack(fill='x', padx=30, pady=(0, 15))
         
-        ttk.Label(card_google, text="Powers deep lead extraction from Google Maps with direct phone numbers, addresses, ratings, and websites.\nGoogle provides $200 free credit monthly (~10,000+ business searches free every month).", font=("Segoe UI", 10)).pack(anchor='w', pady=(0, 8))
+        ttk.Label(card_google, text="Powers deep lead extraction from Google Maps with direct phone numbers, addresses, ratings, and websites.\nGoogle provides $200 free credit monthly (~10,000+ business searches free every month).\nEnter your own Google Cloud Places API key below. Credentials remain private and stored on your local device only.", font=("Segoe UI", 10)).pack(anchor='w', pady=(0, 8))
         
         g_url_frame = ttk.Frame(card_google)
         g_url_frame.pack(fill='x', pady=(0, 10))
@@ -1942,15 +2086,18 @@ class NexusHarvesterApp:
 
         ttk.Label(card_gmail, text="💡 How to get it: 1. Turn ON 2-Step Verification on your Google Account • 2. Click 'Open Gmail App Passwords' • 3. Generate a 16-character App Password • 4. Paste it above.", font=("Segoe UI", 9, "italic"), foreground="#666666").pack(anchor='w')
 
-        # ================= SAVE CONFIGURATION ROW =================
+        # ================= SAVE & RESET CONFIGURATION ROW =================
         save_frame = ttk.Frame(scrollable_frame)
         save_frame.pack(fill='x', padx=30, pady=(10, 30))
         
         save_btn = ttk.Button(save_frame, text="💾 Save All Configuration", command=self.notify_saved, style="Accent.TButton")
-        save_btn.pack(side='left')
+        save_btn.pack(side='left', padx=(0, 10))
+
+        reset_btn = ttk.Button(save_frame, text="🗑️ Reset All Configuration", command=self.reset_to_factory_defaults)
+        reset_btn.pack(side='left', padx=(0, 15))
         
-        self.save_status_lbl = ttk.Label(save_frame, text="Credentials stored locally and securely on your Mac.", font=("Segoe UI", 10), foreground="#666666")
-        self.save_status_lbl.pack(side='left', padx=15)
+        self.save_status_lbl = ttk.Label(save_frame, text="Credentials stored locally and securely on your device.", font=("Segoe UI", 10), foreground="#666666")
+        self.save_status_lbl.pack(side='left')
 
 
 if __name__ == "__main__":

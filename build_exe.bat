@@ -55,7 +55,7 @@ if %errorlevel% neq 0 (
 
 echo.
 echo [4/4] Compiling 100%% fresh standalone Nexus Harvester.exe with PyInstaller...
-%PYTHON_CMD% -m PyInstaller --noconsole --onefile --clean --name "Nexus Harvester" NexusHarvester.py
+%PYTHON_CMD% -m PyInstaller --noconsole --onefile --clean --add-data "icon_512x512.png;." --name "Nexus Harvester" NexusHarvester.py
 
 if exist "dist\Nexus Harvester.exe" (
     copy "dist\Nexus Harvester.exe" "Nexus Harvester.exe" >nul

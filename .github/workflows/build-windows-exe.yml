@@ -27,7 +27,7 @@ jobs:
 
     - name: Compile Standalone Windows EXE
       run: |
-        pyinstaller --noconsole --onefile --clean --name "Nexus Harvester" NexusHarvester.py
+        pyinstaller --noconsole --onefile --clean --add-data "icon_512x512.png;." --name "Nexus Harvester" NexusHarvester.py
 
     - name: Verify Executable Created
       run: |
