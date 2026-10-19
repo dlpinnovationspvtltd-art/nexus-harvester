@@ -173,9 +173,9 @@ class ScraperTab:
         search_frame.pack(fill='x', pady=(0, 15))
         
         lbl = "Target Buyers:" if self.is_prospector else "Target Data:"
-        ttk.Label(search_frame, text=lbl, font=("Segoe UI Variable", 12, "bold")).pack(side='left', padx=5)
+        ttk.Label(search_frame, text=lbl, font=("Segoe UI", 12, "bold")).pack(side='left', padx=5)
         
-        self.query_entry = ttk.Entry(search_frame, width=40, font=("Segoe UI Variable", 12))
+        self.query_entry = ttk.Entry(search_frame, width=40, font=("Segoe UI", 12))
         self.query_entry.pack(side='left', padx=10)
         
         self.search_btn = ttk.Button(search_frame, text="🔍 Start Deep Scrape", command=self.start_search_thread, style="Accent.TButton")
@@ -193,46 +193,46 @@ class ScraperTab:
         self.countries = ["Any"] + sorted([c.name for c in pycountry.countries])
         
         # Using autocomplete combobox
-        self.filter_country = AutocompleteCombobox(filters_frame, values=self.countries, width=20, font=("Segoe UI Variable", 11))
+        self.filter_country = AutocompleteCombobox(filters_frame, values=self.countries, width=20, font=("Segoe UI", 11))
         self.filter_country.set("Any")
         self.filter_country.grid(row=0, column=1, padx=5, pady=(10,5))
         self.filter_country.bind("<<ComboboxSelected>>", self.on_country_change)
         
         ttk.Label(filters_frame, text="State/Region:").grid(row=0, column=2, padx=10, pady=(10,5), sticky='e')
-        self.filter_state = AutocompleteCombobox(filters_frame, values=["Any"], width=20, font=("Segoe UI Variable", 11))
+        self.filter_state = AutocompleteCombobox(filters_frame, values=["Any"], width=20, font=("Segoe UI", 11))
         self.filter_state.set("Any")
         self.filter_state.grid(row=0, column=3, padx=5, pady=(10,5))
 
         ttk.Label(filters_frame, text="City/District:").grid(row=0, column=4, padx=10, pady=(10,5), sticky='e')
-        self.filter_city = ttk.Entry(filters_frame, width=15, font=("Segoe UI Variable", 11))
+        self.filter_city = ttk.Entry(filters_frame, width=15, font=("Segoe UI", 11))
         self.filter_city.grid(row=0, column=5, padx=5, pady=(10,5))
         
         # Row 1: Ratings & Assets
         ttk.Label(filters_frame, text="Min Rating:").grid(row=1, column=0, padx=10, pady=5, sticky='e')
         vcmd = (self.frame.register(self.validate_rating), '%P')
-        self.filter_min_r = ttk.Spinbox(filters_frame, from_=0.0, to=5.0, increment=0.1, width=5, font=("Segoe UI Variable", 11), validate='key', validatecommand=vcmd)
+        self.filter_min_r = ttk.Spinbox(filters_frame, from_=0.0, to=5.0, increment=0.1, width=5, font=("Segoe UI", 11), validate='key', validatecommand=vcmd)
         self.filter_min_r.set(0.0)
         self.filter_min_r.grid(row=1, column=1, padx=5, pady=5, sticky='w')
         
         ttk.Label(filters_frame, text="Max Rating:").grid(row=1, column=2, padx=10, pady=5, sticky='e')
-        self.filter_max_r = ttk.Spinbox(filters_frame, from_=0.0, to=5.0, increment=0.1, width=5, font=("Segoe UI Variable", 11), validate='key', validatecommand=vcmd)
+        self.filter_max_r = ttk.Spinbox(filters_frame, from_=0.0, to=5.0, increment=0.1, width=5, font=("Segoe UI", 11), validate='key', validatecommand=vcmd)
         self.filter_max_r.set(5.0)
         self.filter_max_r.grid(row=1, column=3, padx=5, pady=5, sticky='w')
         
         options = ['Ignore', 'Required', 'Missing']
         
         ttk.Label(filters_frame, text="Website:").grid(row=1, column=4, padx=10, pady=5, sticky='e')
-        self.filter_website = ttk.Combobox(filters_frame, values=options, state='readonly', width=10, font=("Segoe UI Variable", 11))
+        self.filter_website = ttk.Combobox(filters_frame, values=options, state='readonly', width=10, font=("Segoe UI", 11))
         self.filter_website.set("Ignore")
         self.filter_website.grid(row=1, column=5, padx=5, pady=5, sticky='w')
         
         ttk.Label(filters_frame, text="Email:").grid(row=2, column=0, padx=10, pady=(5,10), sticky='e')
-        self.filter_email = ttk.Combobox(filters_frame, values=options, state='readonly', width=10, font=("Segoe UI Variable", 11))
+        self.filter_email = ttk.Combobox(filters_frame, values=options, state='readonly', width=10, font=("Segoe UI", 11))
         self.filter_email.set("Ignore")
         self.filter_email.grid(row=2, column=1, padx=5, pady=(5,10), sticky='w')
 
         ttk.Label(filters_frame, text="Any Socials:").grid(row=2, column=2, padx=10, pady=(5,10), sticky='e')
-        self.filter_socials = ttk.Combobox(filters_frame, values=options, state='readonly', width=10, font=("Segoe UI Variable", 11))
+        self.filter_socials = ttk.Combobox(filters_frame, values=options, state='readonly', width=10, font=("Segoe UI", 11))
         self.filter_socials.set("Ignore")
         self.filter_socials.grid(row=2, column=3, padx=5, pady=(5,10), sticky='w')
         
@@ -258,11 +258,11 @@ class ScraperTab:
         roi_frame.pack(fill='x', pady=(0, 10))
         
         self.roi_badge_var = tk.StringVar(value="💰 Value Generated: $0.00 | Apollo SaaS Cost: $0.00 | Your Cost: $0.00 (100% Free)")
-        self.roi_badge_lbl = ttk.Label(roi_frame, textvariable=self.roi_badge_var, font=("Segoe UI Variable", 10, "bold"), foreground="#2e7d32")
+        self.roi_badge_lbl = ttk.Label(roi_frame, textvariable=self.roi_badge_var, font=("Segoe UI", 10, "bold"), foreground="#2e7d32")
         self.roi_badge_lbl.pack(side='left')
         
         hint_text = "(Green = Sent)  (Red = Failed)" if self.is_prospector else "(Double-click any link cell to open in browser)"
-        ttk.Label(roi_frame, text=hint_text, font=("Segoe UI Variable", 9, "italic")).pack(side='right')
+        ttk.Label(roi_frame, text=hint_text, font=("Segoe UI", 9, "italic")).pack(side='right')
 
         # ---------------- DATA CONSOLE (TREEVIEW) ----------------
         tree_frame = ttk.Frame(main_container)
@@ -320,7 +320,7 @@ class ScraperTab:
         # Status Bar
         self.status_var = tk.StringVar()
         self.status_var.set("Ready.")
-        self.status_bar = ttk.Label(self.frame, textvariable=self.status_var, relief=tk.FLAT, anchor=tk.W, font=("Segoe UI Variable", 10))
+        self.status_bar = ttk.Label(self.frame, textvariable=self.status_var, relief=tk.FLAT, anchor=tk.W, font=("Segoe UI", 10))
         self.status_bar.pack(fill='x', side='bottom', padx=20, pady=10)
 
     def flash_completion(self):
@@ -900,7 +900,7 @@ class MailerTab:
         ttk.Button(lead_footer, text="☐ Deselect All", command=self.deselect_all).pack(side='left')
         
         self.leads_count_var = tk.StringVar(value="No leads loaded yet.")
-        self.leads_count_lbl = ttk.Label(lead_footer, textvariable=self.leads_count_var, font=("Segoe UI Variable", 10, "bold"), foreground="#2e7d32")
+        self.leads_count_lbl = ttk.Label(lead_footer, textvariable=self.leads_count_var, font=("Segoe UI", 10, "bold"), foreground="#2e7d32")
         self.leads_count_lbl.pack(side='right')
 
         self.tree.pack(fill='both', expand=True)
@@ -933,16 +933,16 @@ class MailerTab:
         status_row.pack(fill='x', pady=(4, 0))
         
         self.send_status_var = tk.StringVar(value="Ready to send.")
-        self.send_status_lbl = ttk.Label(status_row, textvariable=self.send_status_var, font=("Segoe UI Variable", 10, "bold"), foreground="#2e7d32")
+        self.send_status_lbl = ttk.Label(status_row, textvariable=self.send_status_var, font=("Segoe UI", 10, "bold"), foreground="#2e7d32")
         self.send_status_lbl.pack(side='left')
 
         # Template Manager Bar
         tpl_bar = ttk.Frame(right_col)
         tpl_bar.pack(side='top', fill='x', pady=(0, 8))
         
-        ttk.Label(tpl_bar, text="Template:", font=("Segoe UI Variable", 11, "bold")).pack(side='left', padx=(0, 5))
+        ttk.Label(tpl_bar, text="Template:", font=("Segoe UI", 11, "bold")).pack(side='left', padx=(0, 5))
         self.template_names = list(self.app.settings.get("templates", {}).keys())
-        self.template_combo = ttk.Combobox(tpl_bar, values=self.template_names, state='readonly', width=22, font=("Segoe UI Variable", 10))
+        self.template_combo = ttk.Combobox(tpl_bar, values=self.template_names, state='readonly', width=22, font=("Segoe UI", 10))
         self.template_combo.set(self.app.settings.get("active_template", self.template_names[0] if self.template_names else ""))
         self.template_combo.pack(side='left', padx=5)
         self.template_combo.bind("<<ComboboxSelected>>", self.on_template_change)
@@ -957,12 +957,12 @@ class MailerTab:
         
         tag_bar = ttk.Frame(prompt_card)
         tag_bar.pack(fill='x', pady=(0, 4))
-        ttk.Label(tag_bar, text="Insert into prompt:", font=("Segoe UI Variable", 9, "italic")).pack(side='left', padx=(0, 4))
+        ttk.Label(tag_bar, text="Insert into prompt:", font=("Segoe UI", 9, "italic")).pack(side='left', padx=(0, 4))
         ttk.Button(tag_bar, text="{name}", command=lambda: self.insert_var("{name}")).pack(side='left', padx=2)
         ttk.Button(tag_bar, text="{city}", command=lambda: self.insert_var("{city}")).pack(side='left', padx=2)
         ttk.Button(tag_bar, text="{rating}", command=lambda: self.insert_var("{rating}")).pack(side='left', padx=2)
         
-        self.prompt_text = tk.Text(prompt_card, height=2, font=("Segoe UI Variable", 11), wrap='word')
+        self.prompt_text = tk.Text(prompt_card, height=2, font=("Segoe UI", 11), wrap='word')
         self.prompt_text.pack(fill='x', pady=(0, 5))
         self.prompt_text.insert('1.0', "Write a short, engaging 3-sentence cold pitch to {name} in {city} offering high-converting local customer leads.")
         
@@ -973,18 +973,18 @@ class MailerTab:
         self.generate_btn.pack(side='left')
         
         self.ai_status_var = tk.StringVar(value="")
-        ttk.Label(ai_action_row, textvariable=self.ai_status_var, font=("Segoe UI Variable", 9, "bold")).pack(side='left', padx=10)
+        ttk.Label(ai_action_row, textvariable=self.ai_status_var, font=("Segoe UI", 9, "bold")).pack(side='left', padx=10)
         
         # Card B: Editable Subject & Body
         editor_card = ttk.LabelFrame(right_col, text=" ✏️ Review & Edit Email (What customers will receive) ", padding=8)
         editor_card.pack(side='top', fill='both', expand=True)
         
-        ttk.Label(editor_card, text="Email Subject:", font=("Segoe UI Variable", 11, "bold")).pack(anchor='w', pady=(2, 2))
-        self.subject_entry = ttk.Entry(editor_card, font=("Segoe UI Variable", 11))
+        ttk.Label(editor_card, text="Email Subject:", font=("Segoe UI", 11, "bold")).pack(anchor='w', pady=(2, 2))
+        self.subject_entry = ttk.Entry(editor_card, font=("Segoe UI", 11))
         self.subject_entry.pack(fill='x', pady=(0, 6))
         
-        ttk.Label(editor_card, text="Email Body (Freely edit text below):", font=("Segoe UI Variable", 11, "bold")).pack(anchor='w', pady=(2, 2))
-        self.body_text = scrolledtext.ScrolledText(editor_card, height=7, font=("Segoe UI Variable", 11), wrap='word')
+        ttk.Label(editor_card, text="Email Body (Freely edit text below):", font=("Segoe UI", 11, "bold")).pack(anchor='w', pady=(2, 2))
+        self.body_text = scrolledtext.ScrolledText(editor_card, height=7, font=("Segoe UI", 11), wrap='word')
         self.body_text.pack(fill='both', expand=True, pady=(0, 4))
         
         self.load_active_template()
@@ -1536,6 +1536,44 @@ class NexusHarvesterApp:
         self.root.title("Nexus Harvester")
         self.root.geometry("1400x850")
         
+        # High-DPI scaling configuration for crisp rendering on Windows 10/11
+        if os.name == 'nt':
+            try:
+                import ctypes
+                ctypes.windll.shcore.SetProcessDpiAwareness(1)
+            except Exception:
+                try:
+                    ctypes.windll.user32.SetProcessDPIAware()
+                except Exception:
+                    pass
+
+        # Configure modern ttk Theme & Styles matching macOS aesthetic
+        self.style = ttk.Style(self.root)
+        if os.name == 'nt':
+            if 'vista' in self.style.theme_names():
+                self.style.theme_use('vista')
+            elif 'winnative' in self.style.theme_names():
+                self.style.theme_use('winnative')
+
+        self.style.configure(
+            "Accent.TButton",
+            font=("Segoe UI", 10, "bold")
+        )
+        self.style.configure(
+            "Treeview",
+            rowheight=26,
+            font=("Segoe UI", 10)
+        )
+        self.style.configure(
+            "Treeview.Heading",
+            font=("Segoe UI", 10, "bold")
+        )
+        self.style.configure(
+            "TNotebook.Tab",
+            padding=(16, 8),
+            font=("Segoe UI", 10, "bold")
+        )
+        
         try:
             icon_path = os.path.join(os.path.dirname(__file__), "icon_512x512.png")
             if os.path.exists(icon_path):
@@ -1543,8 +1581,6 @@ class NexusHarvesterApp:
                 self.root.iconphoto(True, img)
         except Exception:
             pass
-        
-        
         
         self.settings = self.load_settings()
         self.history = self.load_history()
@@ -1606,7 +1642,7 @@ class NexusHarvesterApp:
             }
         }
         default = {
-            "api_key": "AIzaSyCWnXaGL7ZGhBUzQHR43f4ybpXGbWZbric",
+            "api_key": "",
             "groq_api_key": "",
             "use_ai": False,
             "email": "", 
@@ -1803,85 +1839,85 @@ class NexusHarvesterApp:
         header_frame = ttk.Frame(scrollable_frame)
         header_frame.pack(fill='x', padx=30, pady=(25, 20))
         
-        ttk.Label(header_frame, text="⚙️ System Configuration & Direct API Access", font=("Segoe UI Variable", 18, "bold")).pack(anchor='w')
-        ttk.Label(header_frame, text="Configure your Google Places and free Groq AI credentials below. Click the direct portal buttons to open each official dashboard instantly.", font=("Segoe UI Variable", 11), foreground="#555555").pack(anchor='w', pady=(4, 0))
+        ttk.Label(header_frame, text="⚙️ System Configuration & Direct API Access", font=("Segoe UI", 18, "bold")).pack(anchor='w')
+        ttk.Label(header_frame, text="Configure your Google Places and free Groq AI credentials below. Click the direct portal buttons to open each official dashboard instantly.", font=("Segoe UI", 11), foreground="#555555").pack(anchor='w', pady=(4, 0))
 
         # ================= CARD 1: GOOGLE PLACES API =================
         card_google = ttk.LabelFrame(scrollable_frame, text=" 🗺️ 1. Google Places API (Google Maps Scraping) ", padding=15)
         card_google.pack(fill='x', padx=30, pady=(0, 15))
         
-        ttk.Label(card_google, text="Powers deep lead extraction from Google Maps with direct phone numbers, addresses, ratings, and websites.\nGoogle provides $200 free credit monthly (~10,000+ business searches free every month).", font=("Segoe UI Variable", 10)).pack(anchor='w', pady=(0, 8))
+        ttk.Label(card_google, text="Powers deep lead extraction from Google Maps with direct phone numbers, addresses, ratings, and websites.\nGoogle provides $200 free credit monthly (~10,000+ business searches free every month).", font=("Segoe UI", 10)).pack(anchor='w', pady=(0, 8))
         
         g_url_frame = ttk.Frame(card_google)
         g_url_frame.pack(fill='x', pady=(0, 10))
-        ttk.Label(g_url_frame, text="Direct Console URL:", font=("Segoe UI Variable", 10, "bold")).pack(side='left', padx=(0, 6))
-        g_link = ttk.Label(g_url_frame, text="https://console.cloud.google.com/google/maps-apis/credentials", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2")
+        ttk.Label(g_url_frame, text="Direct Console URL:", font=("Segoe UI", 10, "bold")).pack(side='left', padx=(0, 6))
+        g_link = ttk.Label(g_url_frame, text="https://console.cloud.google.com/google/maps-apis/credentials", font=("Segoe UI", 10, "underline"), foreground="#1976d2")
         g_link.bind("<Button-1>", lambda e: self.open_url("https://console.cloud.google.com/google/maps-apis/credentials"))
         g_link.pack(side='left', padx=(0, 15))
         ttk.Button(g_url_frame, text="🌐 Open Google Cloud Console", command=lambda: self.open_url("https://console.cloud.google.com/google/maps-apis/credentials"), style="Accent.TButton").pack(side='left')
 
         g_input_frame = ttk.Frame(card_google)
         g_input_frame.pack(fill='x', pady=(0, 8))
-        ttk.Label(g_input_frame, text="Places API Key:", font=("Segoe UI Variable", 11, "bold")).pack(side='left', padx=(0, 20))
-        self.api_key_entry = ttk.Entry(g_input_frame, width=42, font=("Segoe UI Variable", 11))
+        ttk.Label(g_input_frame, text="Places API Key:", font=("Segoe UI", 11, "bold")).pack(side='left', padx=(0, 20))
+        self.api_key_entry = ttk.Entry(g_input_frame, width=42, font=("Segoe UI", 11))
         self.api_key_entry.insert(0, self.settings.get("api_key", ""))
         self.api_key_entry.pack(side='left', padx=(0, 6))
         self.api_key_entry.bind("<KeyRelease>", lambda e: self.auto_sync_settings())
         self.api_key_entry.bind("<FocusOut>", lambda e: self.auto_sync_settings())
         ttk.Button(g_input_frame, text="📋 Paste", command=lambda: self.paste_to_entry(self.api_key_entry)).pack(side='left', padx=3)
         ttk.Button(g_input_frame, text="⚡ Test Key", command=self.test_google_places_key).pack(side='left', padx=3)
-        self.google_status_lbl = ttk.Label(g_input_frame, text="⚪ Not tested", font=("Segoe UI Variable", 10, "bold"), foreground="#666666")
+        self.google_status_lbl = ttk.Label(g_input_frame, text="⚪ Not tested", font=("Segoe UI", 10, "bold"), foreground="#666666")
         self.google_status_lbl.pack(side='left', padx=10)
 
-        ttk.Label(card_google, text="💡 Quick Steps: 1. Click 'Open Google Cloud Console' • 2. Click '+ CREATE CREDENTIALS' -> 'API Key' • 3. Enable 'Places API (New)' • 4. Paste key above & click 'Test Key'.", font=("Segoe UI Variable", 9, "italic"), foreground="#666666").pack(anchor='w')
+        ttk.Label(card_google, text="💡 Quick Steps: 1. Click 'Open Google Cloud Console' • 2. Click '+ CREATE CREDENTIALS' -> 'API Key' • 3. Enable 'Places API (New)' • 4. Paste key above & click 'Test Key'.", font=("Segoe UI", 9, "italic"), foreground="#666666").pack(anchor='w')
 
         # ================= CARD 2: GROQ AI API =================
         card_groq = ttk.LabelFrame(scrollable_frame, text=" 🤖 2. Groq AI API (100% Free Cold Email Pitch Generator) ", padding=15)
         card_groq.pack(fill='x', padx=30, pady=(0, 15))
         
-        ttk.Label(card_groq, text="Powers instant high-converting cold email generation in Tab 3 using ultra-fast Groq AI models.\n100% Free forever with no credit card required.", font=("Segoe UI Variable", 10)).pack(anchor='w', pady=(0, 8))
+        ttk.Label(card_groq, text="Powers instant high-converting cold email generation in Tab 3 using ultra-fast Groq AI models.\n100% Free forever with no credit card required.", font=("Segoe UI", 10)).pack(anchor='w', pady=(0, 8))
         
         groq_url_frame = ttk.Frame(card_groq)
         groq_url_frame.pack(fill='x', pady=(0, 10))
-        ttk.Label(groq_url_frame, text="Direct Console URL:", font=("Segoe UI Variable", 10, "bold")).pack(side='left', padx=(0, 6))
-        groq_link = ttk.Label(groq_url_frame, text="https://console.groq.com/keys", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2")
+        ttk.Label(groq_url_frame, text="Direct Console URL:", font=("Segoe UI", 10, "bold")).pack(side='left', padx=(0, 6))
+        groq_link = ttk.Label(groq_url_frame, text="https://console.groq.com/keys", font=("Segoe UI", 10, "underline"), foreground="#1976d2")
         groq_link.bind("<Button-1>", lambda e: self.open_url("https://console.groq.com/keys"))
         groq_link.pack(side='left', padx=(0, 15))
         ttk.Button(groq_url_frame, text="🌐 Open Free Groq Console", command=lambda: self.open_url("https://console.groq.com/keys"), style="Accent.TButton").pack(side='left')
 
         groq_input_frame = ttk.Frame(card_groq)
         groq_input_frame.pack(fill='x', pady=(0, 8))
-        ttk.Label(groq_input_frame, text="Groq AI API Key:", font=("Segoe UI Variable", 11, "bold")).pack(side='left', padx=(0, 18))
-        self.groq_api_entry = ttk.Entry(groq_input_frame, width=42, font=("Segoe UI Variable", 11))
+        ttk.Label(groq_input_frame, text="Groq AI API Key:", font=("Segoe UI", 11, "bold")).pack(side='left', padx=(0, 18))
+        self.groq_api_entry = ttk.Entry(groq_input_frame, width=42, font=("Segoe UI", 11))
         self.groq_api_entry.insert(0, self.settings.get("groq_api_key", ""))
         self.groq_api_entry.pack(side='left', padx=(0, 6))
         self.groq_api_entry.bind("<KeyRelease>", lambda e: self.auto_sync_settings())
         self.groq_api_entry.bind("<FocusOut>", lambda e: self.auto_sync_settings())
         ttk.Button(groq_input_frame, text="📋 Paste", command=lambda: self.paste_to_entry(self.groq_api_entry)).pack(side='left', padx=3)
         ttk.Button(groq_input_frame, text="⚡ Test Key", command=self.test_groq_api_key).pack(side='left', padx=3)
-        self.groq_status_lbl = ttk.Label(groq_input_frame, text="⚪ Not tested", font=("Segoe UI Variable", 10, "bold"), foreground="#666666")
+        self.groq_status_lbl = ttk.Label(groq_input_frame, text="⚪ Not tested", font=("Segoe UI", 10, "bold"), foreground="#666666")
         self.groq_status_lbl.pack(side='left', padx=10)
 
-        ttk.Label(card_groq, text="💡 Quick Steps: 1. Click 'Open Free Groq Console' • 2. Sign in free with Google/GitHub • 3. Click 'Create API Key' • 4. Copy the key (starts with 'gsk_') and paste above.", font=("Segoe UI Variable", 9, "italic"), foreground="#666666").pack(anchor='w')
+        ttk.Label(card_groq, text="💡 Quick Steps: 1. Click 'Open Free Groq Console' • 2. Sign in free with Google/GitHub • 3. Click 'Create API Key' • 4. Copy the key (starts with 'gsk_') and paste above.", font=("Segoe UI", 9, "italic"), foreground="#666666").pack(anchor='w')
 
         # ================= CARD 3: GMAIL SMTP SENDER =================
         card_gmail = ttk.LabelFrame(scrollable_frame, text=" ✉️ 3. Gmail Cold Outreach Account (SMTP Sender) ", padding=15)
         card_gmail.pack(fill='x', padx=30, pady=(0, 15))
         
-        ttk.Label(card_gmail, text="Allows sending personalized 1-on-1 and bulk cold emails directly from your Gmail address without paying SaaS outreach tools.", font=("Segoe UI Variable", 10)).pack(anchor='w', pady=(0, 8))
+        ttk.Label(card_gmail, text="Allows sending personalized 1-on-1 and bulk cold emails directly from your Gmail address without paying SaaS outreach tools.", font=("Segoe UI", 10)).pack(anchor='w', pady=(0, 8))
         
         gmail_url_frame = ttk.Frame(card_gmail)
         gmail_url_frame.pack(fill='x', pady=(0, 10))
-        ttk.Label(gmail_url_frame, text="Direct Passwords URL:", font=("Segoe UI Variable", 10, "bold")).pack(side='left', padx=(0, 6))
-        gmail_link = ttk.Label(gmail_url_frame, text="https://myaccount.google.com/apppasswords", font=("Segoe UI Variable", 10, "underline"), foreground="#1976d2")
+        ttk.Label(gmail_url_frame, text="Direct Passwords URL:", font=("Segoe UI", 10, "bold")).pack(side='left', padx=(0, 6))
+        gmail_link = ttk.Label(gmail_url_frame, text="https://myaccount.google.com/apppasswords", font=("Segoe UI", 10, "underline"), foreground="#1976d2")
         gmail_link.bind("<Button-1>", lambda e: self.open_url("https://myaccount.google.com/apppasswords"))
         gmail_link.pack(side='left', padx=(0, 15))
         ttk.Button(gmail_url_frame, text="🌐 Open Gmail App Passwords", command=lambda: self.open_url("https://myaccount.google.com/apppasswords")).pack(side='left')
 
         gm_r1 = ttk.Frame(card_gmail)
         gm_r1.pack(fill='x', pady=(0, 6))
-        ttk.Label(gm_r1, text="Gmail Address:", font=("Segoe UI Variable", 11, "bold")).pack(side='left', padx=(0, 31))
-        self.email_entry = ttk.Entry(gm_r1, width=42, font=("Segoe UI Variable", 11))
+        ttk.Label(gm_r1, text="Gmail Address:", font=("Segoe UI", 11, "bold")).pack(side='left', padx=(0, 31))
+        self.email_entry = ttk.Entry(gm_r1, width=42, font=("Segoe UI", 11))
         self.email_entry.insert(0, self.settings.get("email", ""))
         self.email_entry.pack(side='left', padx=(0, 6))
         self.email_entry.bind("<KeyRelease>", lambda e: self.auto_sync_settings())
@@ -1890,8 +1926,8 @@ class NexusHarvesterApp:
 
         gm_r2 = ttk.Frame(card_gmail)
         gm_r2.pack(fill='x', pady=(0, 8))
-        ttk.Label(gm_r2, text="16-Char App Password:", font=("Segoe UI Variable", 11, "bold")).pack(side='left', padx=(0, 4))
-        self.password_entry = ttk.Entry(gm_r2, width=42, font=("Segoe UI Variable", 11), show="•")
+        ttk.Label(gm_r2, text="16-Char App Password:", font=("Segoe UI", 11, "bold")).pack(side='left', padx=(0, 4))
+        self.password_entry = ttk.Entry(gm_r2, width=42, font=("Segoe UI", 11), show="•")
         self.password_entry.insert(0, self.settings.get("password", ""))
         self.password_entry.pack(side='left', padx=(0, 6))
         self.password_entry.bind("<KeyRelease>", lambda e: self.auto_sync_settings())
@@ -1901,10 +1937,10 @@ class NexusHarvesterApp:
         self.show_pwd_btn.pack(side='left', padx=3)
         ttk.Button(gm_r2, text="📋 Paste", command=lambda: self.paste_to_entry(self.password_entry)).pack(side='left', padx=3)
         ttk.Button(gm_r2, text="⚡ Test Login", command=self.test_gmail_smtp).pack(side='left', padx=3)
-        self.gmail_status_lbl = ttk.Label(gm_r2, text="⚪ Not tested", font=("Segoe UI Variable", 10, "bold"), foreground="#666666")
+        self.gmail_status_lbl = ttk.Label(gm_r2, text="⚪ Not tested", font=("Segoe UI", 10, "bold"), foreground="#666666")
         self.gmail_status_lbl.pack(side='left', padx=10)
 
-        ttk.Label(card_gmail, text="💡 How to get it: 1. Turn ON 2-Step Verification on your Google Account • 2. Click 'Open Gmail App Passwords' • 3. Generate a 16-character App Password • 4. Paste it above.", font=("Segoe UI Variable", 9, "italic"), foreground="#666666").pack(anchor='w')
+        ttk.Label(card_gmail, text="💡 How to get it: 1. Turn ON 2-Step Verification on your Google Account • 2. Click 'Open Gmail App Passwords' • 3. Generate a 16-character App Password • 4. Paste it above.", font=("Segoe UI", 9, "italic"), foreground="#666666").pack(anchor='w')
 
         # ================= SAVE CONFIGURATION ROW =================
         save_frame = ttk.Frame(scrollable_frame)
@@ -1913,7 +1949,7 @@ class NexusHarvesterApp:
         save_btn = ttk.Button(save_frame, text="💾 Save All Configuration", command=self.notify_saved, style="Accent.TButton")
         save_btn.pack(side='left')
         
-        self.save_status_lbl = ttk.Label(save_frame, text="Credentials stored locally and securely on your Mac.", font=("Segoe UI Variable", 10), foreground="#666666")
+        self.save_status_lbl = ttk.Label(save_frame, text="Credentials stored locally and securely on your Mac.", font=("Segoe UI", 10), foreground="#666666")
         self.save_status_lbl.pack(side='left', padx=15)
 
 
